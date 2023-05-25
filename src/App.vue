@@ -1,26 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <Navbar />
+    <RouterView />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from "vue-router";
+import Navbar from "./components/Navbar.vue";
 
 export default {
-  name: 'App',
+  name: "app",
+  data() {
+    return {
+      products: [
+        {
+          id: 1,
+          name: "Apple 14 Pro Max",
+          category: "Appple Phone",
+          price: 1499,
+        },
+        {
+          id: 2,
+          name: "Apple 13 Pro",
+          price: 699,
+          category: "Apple Phone",
+        },
+        {
+          id: 3,
+          name: "Xiaomi 13 Pro",
+          price: 1299,
+          category: "Xiaomi Phone",
+        },
+      ],
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    RouterView,
+    Navbar,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: bisque;
+  padding: 20px;
 }
 </style>
